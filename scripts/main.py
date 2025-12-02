@@ -11,10 +11,10 @@ with open("scripts/input.txt", "r") as f:
         else:
             break
 
-solver = SafeSolver(2)
-# answer = solver.solver(data)
-# print(answer)
-print(SafeSolver.position_looper(self=solver, p=-10, step=-89)[1])
+solver = SafeSolver(1)
+answer = solver.solver(data)
+print(answer)
+# print(SafeSolver.position_looper(self=solver, p=1, step_prev=0, step=-1)[2])
 
 # 0 -> + : the starting 0 is NOT counted
 # 0 -> - : the starting 0 IS counted
