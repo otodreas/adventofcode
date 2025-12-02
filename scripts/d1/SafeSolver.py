@@ -23,4 +23,4 @@ class SafeSolver:
             if position == 0:
                 answer += 1
 
-        return(answer)
+        return answer
