@@ -9,8 +9,10 @@ class SafeSolver:
     def position_looper(self, p, step):
         # Determine how many "clicks" away from the starting position you end up
         clicks = p + step
+        
         # Determine how many cycles through the range have been completed
         cycles = math.floor(clicks/len(self.rng))
+        
         # Adjust the position by "resetting" the position at every cycle
         p_new = clicks + -cycles * len(self.rng)
 
@@ -25,10 +27,13 @@ class SafeSolver:
         for d in data:
             # Get increment from row in data
             increment = int(d[1:])
+            
             # Get sign of increment
             direction = 1 if d[0] is "R" else -1
+            
             # Update the position using position_looper
             position = self.position_looper(position, increment * direction)
+            
             # Update answer if position is 0
             if position == 0:
                 answer += 1
