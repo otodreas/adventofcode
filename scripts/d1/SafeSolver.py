@@ -14,7 +14,7 @@ class SafeSolver:
         cycles = math.floor(clicks/len(self.rng))
         
         # Adjust the position by "resetting" the position at every cycle
-        p_new = clicks + -cycles * len(self.rng)
+        p_new = clicks - cycles * len(self.rng)
 
         return p_new
 
