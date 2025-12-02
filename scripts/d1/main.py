@@ -1,6 +1,5 @@
 from SafeSolver import SafeSolver
 
-# Import data
 data = []
 with open("scripts/d1/input.txt", "r") as f:
     while True:
@@ -10,7 +9,6 @@ with open("scripts/d1/input.txt", "r") as f:
         else:
             break
 
-# Run solver
 solver = SafeSolver()
 answer = solver.solver(data)
 print(answer)
