@@ -10,8 +10,11 @@ class SafeSolver:
         cycles = math.floor(clicks/len(self.rng))  # Determine how many cycles through the range have been completed
         p_new = clicks - cycles * len(self.rng)  # Adjust the position by "resetting" the position at every cycle
 
-        zeros_passed = abs(cycles) if p != 0 else abs(cycles) - 1
-        print(f"{p} + {step} = {p_new}, {cycles} {zeros_passed}")
+        #     zeros_passed = abs(cycles) + 1
+        zeros_passed = abs(cycles) #if p != 0 else abs(cycles) - 1
+        print(p_new)
+        # if step <= 0 and p_new == 0 and zeros_passed > 1:
+        # print(f"{p} + {step} = {p_new}, {cycles} {zeros_passed}")
 
         return [p_new, zeros_passed]
 
