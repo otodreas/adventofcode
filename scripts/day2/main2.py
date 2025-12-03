@@ -19,7 +19,7 @@ def solve(data):
 
 toy_data = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
 
-with open("scripts/day2/input.txt", "r") as f:
+with open("scripts/day2/input2.txt", "r") as f:
     data = f.read().strip()
 
 print(f"Toy solved: {solve_toy(toy_data, 1227775554, 4174379265)}")

@@ -29,6 +29,8 @@ class idParser:
         self.tb = tb
         sum_invalid_ids = 0
 
+        print("parse1 in progress")
+
         for pair in values:
             # Since pair is a range, get all values in range in a list
             ids = list(pair)
@@ -56,6 +58,8 @@ class idParser:
         self.values = values
         self.tb = tb
         sum_invalid_ids = 0
+
+        print("parse2 in progress")
 
         for pair in values:
             ids = list(pair)
