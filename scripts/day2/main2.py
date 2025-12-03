@@ -2,16 +2,16 @@ from idParser import idParser
 
 
 def solve_toy(toy_data, key1, key2):
-    parser = idParser()
-    values = idParser.make_data_list(parser, toy_data)
+    parser = idParser(toy_data)
+    values = idParser.make_data_list(parser)
     answer1 = idParser.parse1(parser, values, tb=True)
     answer2 = idParser.parse2(parser, values, tb=True)
     return [not answer1 - key1, not answer2 - key2]
 
 
 def solve(data):
-    parser = idParser()
-    values = idParser.make_data_list(parser, data)
+    parser = idParser(data)
+    values = idParser.make_data_list(parser)
     answer1 = idParser.parse1(parser, values, tb=False)  # SOLVED: 19386344315
     answer2 = idParser.parse2(parser, values, tb=False)  # SOLVED: 34421651192
     return [answer1, answer2]

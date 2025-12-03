@@ -2,12 +2,11 @@ import math
 
 
 class idParser:
-    def __init__(self):
-        pass
-
-    def make_data_list(self, txt_data):
+    def __init__(self, txt_data):
         self.txt_data = txt_data
-        txt_data_list = txt_data.split(sep=",")
+
+    def make_data_list(self):
+        txt_data_list = self.txt_data.split(sep=",")
 
         values = []
         for d in txt_data_list:
@@ -25,8 +24,6 @@ class idParser:
         defined as id's made up EXACTLY two identical sequences.
             For example: 1212 (12 twice), 44 (4 twice)
         """
-        self.values = values
-        self.tb = tb
         sum_invalid_ids = 0
 
         print("parse1 in progress")
@@ -55,8 +52,6 @@ class idParser:
         defined as id's made up two OR MORE identical sequences
             For example: 1212, 44, 999, 567567567.
         """
-        self.values = values
-        self.tb = tb
         sum_invalid_ids = 0
 
         print("parse2 in progress")
