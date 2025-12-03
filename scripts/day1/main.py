@@ -1,7 +1,7 @@
 from SafeSolver import SafeSolver
 
 data = []
-with open("scripts/input.txt", "r") as f:
+with open("scripts/day1/input.txt", "r") as f:
     while True:
         line = f.readline().strip()
         if line:
