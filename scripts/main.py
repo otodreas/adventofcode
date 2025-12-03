@@ -1,5 +1,5 @@
 from SafeSolver import SafeSolver
-i = 0
+
 data = []
 with open("scripts/input.txt", "r") as f:
     while True:
