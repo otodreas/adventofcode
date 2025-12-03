@@ -32,9 +32,9 @@ class SafeSolver:
             direction = 1 if d[0] == "R" else -1
             position, zeros_passed = self.position_looper(position, increment, direction)
             if position == 0:
-                    answer += 1
+                    answer += 1  # Update zeros landed on
             if self.method == 2:
-                answer += zeros_passed
+                answer += zeros_passed  # Update zeros passed
 
         return answer
     
