@@ -7,7 +7,6 @@ nrolls, arr = r.get_rolls(start_arr)
 print(nrolls)  # Print number of rolls accessed first time
 
 total_rolls_pulled = nrolls
-x = 0
 while True:
     nrolls, arr_updated = r.get_rolls(arr)
     total_rolls_pulled += nrolls
