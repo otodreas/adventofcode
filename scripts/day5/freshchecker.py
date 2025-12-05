@@ -33,7 +33,7 @@ class FreshChecker:
         for r in self.ranges[1:]:
             r_p = xranges[-1]
             # Update exclusive range or create new if it doesn't overlap with previous ranges
-            if (r_p[0] < r[-1] + 1 and r[0] < r_p[-1] + 1):
+            if r_p[0] < r[-1] + 1 and r[0] < r_p[-1] + 1:
                 xranges[-1] = range(min(r_p[0], r[0]), max(r_p[-1] + 1, r[-1] + 1))
             else:
                 xranges.append(r)

@@ -36,11 +36,7 @@ def solve(fp, method):
 
 
 def check(answer, key):
-    return (
-        "Too small" if answer < key else
-        "Too large" if answer > key else
-        "Solved"
-    )
+    return "Too small" if answer < key else "Too large" if answer > key else "Solved"
 
 
 print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 1), 3))
