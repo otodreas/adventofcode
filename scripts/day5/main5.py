@@ -16,7 +16,7 @@ def solve(fp, method):
             else:
                 fc.get_ranges(ranges_raw)
                 break
-        
+
         if method == 1:
             while True:
                 i += 1
@@ -27,11 +27,10 @@ def solve(fp, method):
                     break
 
             return fresh_sum
-        
-        else:
-            n_fresh_ids = fc.count_fresh_ids()
 
-            return n_fresh_ids
+        else:
+            return fc.count_fresh_ids()
+
 
 def check(answer, key):
     if answer < key:
@@ -42,11 +41,7 @@ def check(answer, key):
         return "Solved"
 
 
-print(check(solve("scripts/day5/toy_input5.txt", 1), 3))
-# print(solve("scripts/day5/input5.txt", 1))
-print(check(solve("scripts/day5/toy_input5.txt", 2), 14))
-# print(solve("scripts/day5/input5.txt", 2))
-x = range(1, 11)
-y = range(5, 16)
-print(range(max(x[0], y[0]), min(x[-1], y[-1])+1))
-# print(len([x, y]))
+print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 1), 3))
+print("Real data:", solve("scripts/day5/input5.txt", 1))
+print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 2), 14))
+print("Real data:", solve("scripts/day5/input5.txt", 2))

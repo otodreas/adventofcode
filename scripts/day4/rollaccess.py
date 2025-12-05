@@ -22,11 +22,9 @@ class RollAccess:
                 # Check if the position contains a roll
                 if arr[i, j] == "@":
                     frame = np.array([arr[i - 1 : i + 2, j - 1 : j + 2]])
-                    kernel = np.array([
-                        ["@", "@", "@"],
-                        ["@", "X", "@"],
-                        ["@", "@", "@"]
-                    ])
+                    kernel = np.array(
+                        [["@", "@", "@"], ["@", "X", "@"], ["@", "@", "@"]]
+                    )
                     # Update variables if there are 4 or more rolls around the position
                     if np.sum(frame == kernel) < 4:
                         accessible_rolls_count += 1
