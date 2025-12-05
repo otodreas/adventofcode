@@ -4,10 +4,10 @@ from freshchecker import FreshChecker
 
 def solve(fp, method):
     fc = FreshChecker()
-    fresh_sum = 0
     with open(fp, "r") as file:
-        i = 0
+        # Get ranges from data file
         ranges_raw = []
+        i = 0
         while True:
             i += 1
             range_raw = file.readline().strip()
@@ -17,7 +17,9 @@ def solve(fp, method):
                 fc.get_ranges(ranges_raw)
                 break
 
+        # Count how many id's below the ranges are contained in the ranges
         if method == 1:
+            fresh_sum = 0
             while True:
                 i += 1
                 id = linecache.getline(fp, i)
@@ -28,17 +30,17 @@ def solve(fp, method):
 
             return fresh_sum
 
+        # Count how many id's are in the ranges
         else:
             return fc.count_fresh_ids()
 
 
 def check(answer, key):
-    if answer < key:
-        return "Too small"
-    elif answer > key:
-        return "Too large"
-    else:
-        return "Solved"
+    return (
+        "Too small" if answer < key else
+        "Too large" if answer > key else
+        "Solved"
+    )
 
 
 print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 1), 3))
