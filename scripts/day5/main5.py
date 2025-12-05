@@ -27,7 +27,6 @@ def solve(fp, method):
                     fresh_sum += fc.check_fresh(int(id))
                 else:
                     break
-
             return fresh_sum
 
         # Count how many id's are in the ranges
