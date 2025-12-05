@@ -26,21 +26,21 @@ class FreshChecker:
         return False
 
     def count_fresh_ids(self):
-        NOLs = [self.ranges[0]]  # Non-overlapping lengths
+        xranges = [self.ranges[0]]
         for r in self.ranges[1:]:
-            r_p = NOLs[-1]
+            r_p = xranges[-1]
             if (
                 r_p[0] < r[-1] + 1
                 and r_p[-1] + 1 > r[0]
                 or r[0] < r_p[-1] + 1
                 and r[-1] + 1 > r_p[0]
             ):
-                NOLs[-1] = range(min(r_p[0], r[0]), max(r_p[-1] + 1, r[-1] + 1))
+                xranges[-1] = range(min(r_p[0], r[0]), max(r_p[-1] + 1, r[-1] + 1))
             else:
-                NOLs.append(r)
+                xranges.append(r)
 
         fresh_ids = 0
-        for NOL in NOLs:
-            fresh_ids += len(NOL)
+        for xrange in xranges:
+            fresh_ids += len(xrange)
 
         return fresh_ids
