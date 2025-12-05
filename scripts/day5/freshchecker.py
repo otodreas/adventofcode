@@ -29,12 +29,7 @@ class FreshChecker:
         xranges = [self.ranges[0]]
         for r in self.ranges[1:]:
             r_p = xranges[-1]
-            if (
-                r_p[0] < r[-1] + 1
-                and r_p[-1] + 1 > r[0]
-                or r[0] < r_p[-1] + 1
-                and r[-1] + 1 > r_p[0]
-            ):
+            if (r_p[0] < r[-1] + 1 and r[0] < r_p[-1] + 1):
                 xranges[-1] = range(min(r_p[0], r[0]), max(r_p[-1] + 1, r[-1] + 1))
             else:
                 xranges.append(r)
