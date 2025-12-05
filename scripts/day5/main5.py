@@ -42,3 +42,5 @@ print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 1), 3))
 print("Real data:", solve("scripts/day5/input5.txt", 1))
 print("Toy data:", check(solve("scripts/day5/toy_input5.txt", 2), 14))
 print("Real data:", solve("scripts/day5/input5.txt", 2))
+
+linecache.clearcache()
