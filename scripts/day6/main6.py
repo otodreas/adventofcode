@@ -1,4 +1,3 @@
-import re
 from mathsolver import MathSolver
 
 
