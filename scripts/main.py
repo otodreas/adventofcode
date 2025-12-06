@@ -19,11 +19,16 @@ def solve_math(data, method, key=None):
             return math_solver.calculate_sum()
 
 
-def print_solutions6():
-    print(solve_math("scripts/day6/toy_input6.txt", 1, 4277556))
-    print(solve_math("scripts/day6/input6.txt", 1))
-    print(solve_math("scripts/day6/toy_input6.txt", 2, 3263827))
-    print(solve_math("scripts/day6/input6.txt", 2))
+def print_solutions(function, files, keys):
+    print(function(files[0], 1, keys[0]))
+    print(function(files[1], 1))
+    print(function(files[0], 2, keys[1]))
+    print(function(files[1], 2))
 
 
-print_solutions6()
+# Solve day 6 problems
+print_solutions(
+    solve_math,
+    ["scripts/day6/toy_input6.txt", "scripts/day6/input6.txt"],
+    [4277556, 3263827],
+)
