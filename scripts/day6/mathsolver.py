@@ -14,8 +14,7 @@ class MathSolver:
         else:
             digits_list = [(list(line.strip("\n"))) for line in data_list[:-1]]
             digits_arr = np.array(digits_list, dtype=np.str_).T
-            numbers_list = []
-            numbers_row = []
+            numbers_list, numbers_row = [], []
             for digits in digits_arr:
                 if np.sum(digits == " ") < len(digits):
                     numbers_row.append(np.int16("".join(digits).strip()))
