@@ -27,6 +27,7 @@ class MathSolver:
                     numbers_row = []
             # Append the final "row" of numbers to the list of numbers and assign as attribute
             numbers_list.append(numbers_row)
+            # Since each "row" of numbers can have different lengths, do not convert to numpy array
             self.numbers = numbers_list
 
         else:
