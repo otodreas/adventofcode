@@ -1,6 +1,5 @@
 from mathsolver import MathSolver
 
-
 solver = MathSolver()
 
 
