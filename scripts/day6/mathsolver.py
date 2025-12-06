@@ -7,6 +7,13 @@ class MathSolver:
         pass
 
     def prepare_arrays(self, data_list, method):
+        """
+        Data are passed to this function in the form of a list with nested
+        lists, where each nested list is one row of input data. Since
+        operations are done on columns of the data, numerical input data are
+        transformed before being assigned as attributes so that operations can
+        be executed by the calculate_sum method
+        """
         # Assign operation symbols as attribute
         self.operations = re.split(r"\s+", data_list[-1].strip())
         if method == 2:
@@ -19,15 +26,16 @@ class MathSolver:
             numbers_row = []
             for digits in digits_arr:
                 if np.sum(digits == " ") < len(digits):
-                    # Add numbers to a "row" in the list of numbers
+                    # Append numbers to the current "row"
                     numbers_row.append(int("".join(digits).strip()))
                 else:
-                    # Add the "row" of numbers to the list of numbers and reassing the "row" list to an empty list
+                    # Add the "row" of numbers to the list of numbers
                     numbers_list.append(numbers_row)
+                    # Reassign the "row" list to an empty list
                     numbers_row = []
-            # Append the final "row" of numbers to the list of numbers and assign as attribute
+            # Append the final "row" of numbers to the list of numbers
             numbers_list.append(numbers_row)
-            # Since each "row" of numbers can have different lengths, do not convert to numpy array
+            # Since each "row" of numbers can have different lengths, do not convert to numpy array when assigning attribute
             self.numbers = numbers_list
 
         else:
