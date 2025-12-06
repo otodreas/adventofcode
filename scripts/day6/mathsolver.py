@@ -16,7 +16,20 @@ class MathSolver:
         """
         # Assign operation symbols as attribute
         self.operations = re.split(r"\s+", data_list[-1].strip())
-        if method == 2:
+        if method == 1:
+            """
+            Numbers are defined as neighboring digits in input data
+            """
+            # Get numbers in each row of text
+            digits_list = [re.split(r"\s+", line.strip()) for line in data_list[:-1]]
+            # Create array, transform so that operations are performed on rows, assign as attribute
+            self.numbers = np.array(digits_list, dtype=np.int16).T
+
+        else:
+            """
+            Numbers are defined as "stacked" digits across rows of text in
+            input data
+            """
             # Get individual characters including spaces from the number rows
             digits_list = [(list(line.strip("\n"))) for line in data_list[:-1]]
             # Transform data so that vertically conserved spaces are rows in an array
@@ -37,12 +50,6 @@ class MathSolver:
             numbers_list.append(numbers_row)
             # Since each "row" of numbers can have different lengths, do not convert to numpy array when assigning attribute
             self.numbers = numbers_list
-
-        else:
-            # Get numbers in each row of text
-            digits_list = [re.split(r"\s+", line.strip()) for line in data_list[:-1]]
-            # Create array, transform so that operations are performed on rows, assign as attribute
-            self.numbers = np.array(digits_list, dtype=np.int16).T
 
     def calculate_sum(self):
         sum = 0
