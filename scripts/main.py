@@ -5,8 +5,11 @@ ms = mathsolver.MathSolver()
 bs = beamsplitter.BeamSplitter()
 
 
-def check(answer, key):
-    return "Too small" if answer < key else "Too big" if answer > key else "Solved"
+def check(answer, key=None):
+    if key:
+        return "Too small" if answer < key else "Too big" if answer > key else "Solved"
+    else:
+        return answer
 
 
 def file_list_reader(fp):
@@ -15,21 +18,17 @@ def file_list_reader(fp):
         for line in f:
             data_list.append(line)
         return data_list
-    
+
 
 def solve_math(data, method, key=None):
     data_list = file_list_reader(data)
     ms.prepare_arrays(data_list, method)
-    if key:
-        return check(ms.calculate_sum(), key)
-    else:
-        return ms.calculate_sum()
+    return check(ms.calculate_sum(), key)
 
 
 def solve_beam(data, method=1, key=None):
     data_list = file_list_reader(data)
-    return bs.find_splits(data_list)
-
+    return check(bs.find_splits(data_list, method), key)
 
 
 # # Solve day 6 problems
@@ -46,5 +45,5 @@ files = ["scripts/day7/toy_input7.txt", "scripts/day7/input7.txt"]
 keys = [21, 40]
 
 print(solve_beam(files[0], 1, keys[0]))
-print(solve_beam(files[1], 1))
-print(solve_beam(files[0], 2, keys[1]))
+# print(solve_beam(files[1], 1))
+# print(solve_beam(files[0], 2))  # , keys[1]))
