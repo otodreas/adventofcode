@@ -47,3 +47,4 @@ keys = [21, 40]
 print(solve_beam(files[0], 1, keys[0]))
 # print(solve_beam(files[1], 1))
 # print(solve_beam(files[0], 2))  # , keys[1]))
+# print(solve_beam(files[1], 2))

@@ -7,7 +7,8 @@ class BeamSplitter:
 
     def find_splits(self, data_list, method):
         n_splits = 0
-        paths = []
+        paths = {}
+        path_counter = 1
         for line in data_list:
             split_indices = set([c.start(0) for c in re.finditer("[^.]", line.strip())])
             if "S" in line:
@@ -18,4 +19,13 @@ class BeamSplitter:
                         beam_indices.remove(i)
                         beam_indices.update((i - 1, i + 1))
                         n_splits += 1
-        return n_splits if method == 1 else len(paths)
+                        path_counter += 2
+                        for j in ["L", "R"]:
+                            path_counter += 1
+                            print(paths.keys())
+                            if path_counter not in paths.keys():
+                                paths[path_counter] = j
+                            else:
+                                print("!")
+                                paths[path_counter] = paths[path_counter] + j
+        return n_splits if method == 1 else path_counter
