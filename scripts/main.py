@@ -44,7 +44,7 @@ def solve_beam(data, method=1, key=None):
 files = ["scripts/day7/toy_input7.txt", "scripts/day7/input7.txt"]
 keys = [21, 40]
 
-print(solve_beam(files[0], 1, keys[0]))
-print(solve_beam(files[1], 1))
-# print(solve_beam(files[0], 2))  # , keys[1]))
+# print(solve_beam(files[0], 1, keys[0]))
+# print(solve_beam(files[1], 1))
+print(solve_beam(files[0], 2, keys[1]))
 # print(solve_beam(files[1], 2))
