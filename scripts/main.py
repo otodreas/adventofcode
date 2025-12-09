@@ -28,7 +28,7 @@ def solve_math(data, method, key=None):
 
 def solve_beam(data, method=1, key=None):
     data_list = file_list_reader(data)
-    return check(bs.count_splits(data_list), key) if method == 1 else check(bs.count_paths(data_list), key)
+    return check(bs.count_beams(data_list, method), key) if key else bs.count_beams(data_list, method)
 
 
 # # Solve day 6 problems
@@ -46,5 +46,5 @@ keys = [21, 40]
 
 # print(solve_beam(files[0], 1, keys[0]))
 # print(solve_beam(files[1], 1))
-print(solve_beam(files[0], 2, keys[1]))
-# print(solve_beam(files[1], 2))
+print(solve_beam(files[0], "paths", keys[1]))
+print(solve_beam(files[1], "paths"))
